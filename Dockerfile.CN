@@ -1,0 +1,6 @@
+FROM devcontainer.json
+
+RUN git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
+RUN cd openairinterface5g && / docker build --target ran-base --tag ran-base:latest --file docker/Dockerfile.base.ubuntu20 .
+RUN docker build --target ran-build --tag ran-build:latest --file docker/Dockerfile.build.ubuntu20 .
+
