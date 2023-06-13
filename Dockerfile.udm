@@ -1,0 +1,2 @@
+FROM oaisoftwarealliance/oai-udm as udm
+ENV DEBIAN_FRONTEND=noninteractive
