@@ -1,0 +1,114 @@
+version: "3.3"
+services: 
+  mysql:
+    container_name: "mysql"
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: open5gs
+      MYSQL_USER: open5gs
+      MYSQL_PASSWORD: open5gs
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.131
+  amf:
+    container_name: "amf"
+    image: amf:latest
+    expose:
+      - 80\tcp        
+      - 8080\tcp
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.136
+  smf:
+    container_name: "smf"
+    image: smf:latest
+    expose:
+  
+    - 80\tcp      
+    - 8080\tcp
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.136
+  ausf:
+    container_name: "ausf"
+    image: ausf:latest
+    expose:
+  
+    - 80\tcp      
+    - 8080\tcp
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.136
+  nssf:
+    container_name: "nssf"
+    image:  nssf:latest
+    expose:
+  
+    - 80\tcp      
+    - 8080\tcp
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.136
+  udm:
+    container_name: "udm"
+    image: udm:latest
+    expose:
+  
+    - 80\tcp      
+    - 8080\tcp
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.136
+  upf:
+    container_name: "upf"
+    image: upf:latest
+    expose:
+  
+    - 80\tcp      
+    - 8080\tcp
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.136
+  udr:
+    container_name: "udr"
+    image: udr:latest
+    expose:
+  
+    - 80\tcp      
+    - 8080\tcp
+    depends_on:
+            - mysql
+            - nrf
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.136
+  nrf:
+    container_name: "nrf"
+    image: nrf:latest
+    expose:
+
+    - 80\tcp    
+    - 8080\tcp
+    networks:
+            public_net:
+                ipv4_address: 192.168.70.130
+
+networks:
+    # public_net:
+    #     external:
+    #         name: demo-oai-public-net
+    public_net:
+        driver: bridge
+        name: demo-oai-public-net
+        ipam:
+            config:
+                - subnet: 192.168.70.128/26
+        driver_opts:
+            com.docker.network.bridge.name: "demo-oai"
+
+    #see how to install network files basic later
+    #networks:  
+ 

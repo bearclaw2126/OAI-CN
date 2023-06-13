@@ -1,0 +1,2 @@
+FROM oaisoftwarealliance/oai-upf-vpp as upf
+ENV DEBIAN_FRONTEND=noninteractive
