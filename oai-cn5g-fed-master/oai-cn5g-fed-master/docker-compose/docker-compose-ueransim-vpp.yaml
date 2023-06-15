@@ -45,10 +45,11 @@ services:
             interval: 10s
             timeout: 5s
             retries: 5
+            #Creating automatic network but no intial capture packets
 networks:
     public_net:
         external:
             name: demo-oai-public-net
     public_net_access:
         external:
-            name: oai-public-access
+           name: oai-public-access
