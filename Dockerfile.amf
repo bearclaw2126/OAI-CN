@@ -1,4 +1,4 @@
-FROM oaisoftwarealliance/oai-amf as amf
+FROM oaisoftwarealliance/oai-amf:v1.5.1 as amf
 
 # Install dependencies
 #install python3.8 

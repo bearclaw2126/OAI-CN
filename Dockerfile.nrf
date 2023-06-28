@@ -1,2 +1,2 @@
-FROM oaisoftwarealliance/oai-nrf as nrf
+FROM oaisoftwarealliance/oai-nrf:v1.5.1 as nrf
 ENV debian_frontend=noninteractive
