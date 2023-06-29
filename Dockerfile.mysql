@@ -1,5 +1,6 @@
-FROM mysql:latest
-LABEL maintainer="Miguel"
+FROM mysql:5.7.16
+
+
 
 
 
@@ -15,9 +16,10 @@ ENV MYSQL_USER=$MYSQL_USER
 ENV MYSQL_PASSWORD=$MYSQL_PASSWORD
 ENV MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
 
-ADD data.sql /etc/mysql/data.sql
+COPY amf.conf /etc/mysql/mysql.conf.d/custom.cnf
 
-RUN sed -i 's/MYSQL_DATABASE/'$MYSQL_DATABASE'/g' /etc/mysql/data.sql
-RUN cp /etc/mysql/data.sql /docker-entrypoint-initdb.d
+# Copy initialization scripts, if any
+COPY init.sql /docker-entrypoint-initdb.d/init.sql
 
+# Expose the MySQL port (3306) if needed
 EXPOSE 3306

@@ -1,4 +1,4 @@
-FROM oaisoftwarealliance/oai-amf as smf
+FROM oaisoftwarealliance/oai-amf:v1.5.1 as smf
 # Install dependencies
 ENV DEBIAN_FRONTEND=noninteractive
 
