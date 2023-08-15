@@ -18,7 +18,7 @@ sudo apt install libsctp-dev python3.8 cmake-curses-gui libpcre2-dev python-dev
 git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
 cd openairinterface5g
 git checkout e2_sub
-source oaienv
+
 cd cmake_targets
 ./build_oai -I -w SIMU --gNB --nrUE -e2 --ninja
 
