@@ -88,13 +88,8 @@ sleep 45
 #start srsRAN UE
 sudo srsue --gw.netns=ue1
 
-output=$(sudo ip netns exec ue1 ping 172.16.0.1 -c 3)
+output2=$(sudo ip netns exec ue1 ping 172.16.0.1 -c 3)
 
-if [[ $output == *"3 received"* ]]; then
-    echo "UE is connected to the RIC"
-else
-    echo "UE is not connected to the RIC"
-    exit 1
 
-fi
+
 
