@@ -20,7 +20,7 @@ cd openairinterface5g
 git checkout e2_sub
 
 cd cmake_targets
-./build_oai -I -w SIMU --gNB --nrUE -e2 --ninja
+./build_oai -I -w SIMU --gNB --nrUE -e2 --ninja -y
 
 
 
