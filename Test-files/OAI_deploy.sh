@@ -1,7 +1,7 @@
 #This is a deploy script for ease of use
 #Assumes prequyistes are installed docker,git
 
-mk dir ~/OAI
+mkdir ~/OAI
 
 cd ~/OAI
 #Enables multilanguae support  for xApps 
