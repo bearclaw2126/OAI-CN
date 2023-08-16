@@ -20,7 +20,7 @@ git checkout e2_sub
 #build OAI
 cd cmake_targets
 ./build_oai -I -w USRP -y
-./build_oai -w SIMU --gNB --nrUE -e2 --ninja -y
+./build_oai -w SIMU --gNB --nrUE --build-e2 --ninja -y
 
 
 
