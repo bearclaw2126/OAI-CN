@@ -4,33 +4,26 @@
 mkdir ~/work
 
 cd ~/work
-#Enables multilanguae support  for xApps 
-#xApps will allow custom applications to made for analyctical purposes
-git clone https://github.com/swig/swig.git
-cd swig
-./autogen.sh
-./configure --prefix=/usr/
-make
-make install
-sudo apt install libsctp-dev python3.8 cmake-curses-gui libpcre2-dev python-dev
+
+sudo apt install libsctp-dev  cmake-curses-gui libpcre2-dev
+
 git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git oai
 cd oai/
-git checkout e2_sub
 
 #build OAI
 cd cmake_targets
-./build_oai -I -w USRP -y
-./build_oai -w SIMU --gNB --nrUE --build-e2 --ninja -y
+./build_oai -I -w USRP
+./build_oai -w SIMU --gNB --nrUE --ninja
+
+cd ~/work
+
+#build free5gc
+git clone https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git 5gc
+
+cd 5gc/docker-compose 
+
+sudo python3 ./core-network.py --type start-mini --scenario 1
 
 
 
-cd ../..
-git clone https://gitlab.eurecom.fr/mosaic5g/flexric flexric
-cd flexric/
-git checkout mir_dev
 
-#This will build the flexric software
-
-mkdir build && cd build && cmake .. && make
-
-sudo make install
