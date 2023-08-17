@@ -13,7 +13,7 @@ cd oai/
 #build OAI
 cd cmake_targets
 ./build_oai -I -w USRP
-./build_oai -w SIMU --gNB --nrUE --ninja
+./build_oai -w SIMU --gNB --nrUE --phy_simulators --ninja
 
 cd ~/work
 
