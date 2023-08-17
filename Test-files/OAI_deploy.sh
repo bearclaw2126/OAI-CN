@@ -20,9 +20,9 @@ cd ~/work
 #build free5gc
 git clone https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git 5gc
 
-cd 5gc/docker-compose 
+#cd 5gc/docker-compose 
 
-sudo python3 ./core-network.py --type start-mini --scenario 1
+#sudo python3 ./core-network.py --type start-mini --scenario 1
 
 
 
